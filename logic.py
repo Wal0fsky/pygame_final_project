@@ -13,11 +13,8 @@ def rotate_player(isLeft, player, dt):
     if isLeft: # vertical screen is inverted... why bruv
         player.angle -= dt * 120 
         player.image = pygame.transform.rotate(player.original_image, -1 * (player.angle))
-        # doesn't work sadly, player.hitbox = pygame.transform.rotate(player.hitbox, -1 * (player.angle))
         
     else:
         player.angle += dt * 120
         player.image = pygame.transform.rotate(player.original_image, -1 * (player.angle))
-        # doesn't work sadly, FIXX player.hitbox = pygame.transform.rotate(player.hitbox, -1 * (player.angle))
-
     # transform the figure once we have one
