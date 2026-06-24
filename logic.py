@@ -1,4 +1,5 @@
 import pygame
+import matplotlib.path as mpath
 
 class Game_Object:
     def __init__(self, angle, pos):
@@ -69,3 +70,15 @@ class Projectile(Game_Object):
             return False
         else:
             return True
+
+class Enemy(Player):
+    def __init__(self, angle, pos, img):
+        super().__init__(angle, pos, img)
+
+    def check_contact(self, polygon2_points):
+        enemy_polygon = mpath.Path(self.upd_hitbox_points)
+        polygon2 = mpath.Path(polygon2_points)
+        if enemy_polygon.intersects_path(polygon2):
+            return True
+        else: 
+            return False
