@@ -8,7 +8,7 @@ class Game_Object:
 
     def move(self, isForward, dt, speed):
         movement = pygame.Vector2()
-        movement.from_polar((speed * dt, self.angle)) # 300 for player
+        movement.from_polar((speed * dt, self.angle))
 
         if isForward:
             self.pos += movement
@@ -16,14 +16,11 @@ class Game_Object:
             self.pos -= movement
 
     def rotate(self, isLeft, dt, speed):
-        if isLeft: # vertical screen is inverted... why bruv
-            self.angle -= dt * speed # 120 for player 
-            # exclude for now, look if I'll make another function for updating the image: player.image = pygame.transform.rotate(player.image, -1 * (player.angle))
+        if isLeft:
+            self.angle -= dt * speed
         
         else:
             self.angle += dt * speed
-            # same with excluding here: player.image = pygame.transform.rotate(player.image, -1 * (player.angle))
-    # transform the figure once we have one
 
 
 class Player(Game_Object):
@@ -32,7 +29,7 @@ class Player(Game_Object):
 
         self.original_image = img # for game logic
         self.image = img
-        self.rect = pygame.Surface.get_rect(self.image) #rect-based player movement
+        self.rect = pygame.Surface.get_rect(self.image) # rect-based player movement
 
         hh = self.image.get_height() / 2
         hw = self.image.get_width() / 2

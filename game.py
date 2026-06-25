@@ -4,7 +4,7 @@ import sys
 import logic
 import random
 
-pygame.init() # source: https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1
+pygame.init()
 screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
@@ -37,7 +37,7 @@ while running: # game loop cycle
     enemy_time += enemy_timer.tick()
     
     for event in pygame.event.get(): # event listener
-        if event.type == pygame.QUIT: # player pressed "X"
+        if event.type == pygame.QUIT: # player pressed X button
             running = False
 
     keys = pygame.key.get_pressed()
